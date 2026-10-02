@@ -1,6 +1,4 @@
-# Clinical Risk & Patient Outcome Intelligence System — v2
-
-Advanced portfolio project combining **Machine Learning + Explainable AI + LLM + Agentic AI + API + MLOps + database audit logging**.
+# Clinical Risk & Patient Outcome Intelligence System 
 
 > The included healthcare dataset is fully synthetic. This system is for engineering/education demonstrations and must not be used for diagnosis or clinical decisions.
 
