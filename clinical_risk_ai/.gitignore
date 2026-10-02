@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+mlruns/*
+*.log
+models/*.joblib
+models/*.json
+data/processed/*
