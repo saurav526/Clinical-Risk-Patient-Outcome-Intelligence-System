@@ -50,8 +50,11 @@ def main():
         "random_forest": RandomForestClassifier(n_estimators=400, max_depth=12, min_samples_leaf=3, class_weight="balanced", random_state=42, n_jobs=-1),
         "gradient_boosting": GradientBoostingClassifier(n_estimators=300, learning_rate=.04, max_depth=3, random_state=42),
     }
-    if mlflow:
-        mlflow.set_tracking_uri((ROOT / "mlruns").as_uri())
+    import os
+
+    mlflow.set_tracking_uri(
+    os.getenv("MLFLOW_TRACKING_URI", "sqlite:///./mlflow.db")
+)
     best = None
     for name, estimator in candidates.items():
         pipe = Pipeline([("preprocessor", build_preprocessor()), ("model", estimator)])
