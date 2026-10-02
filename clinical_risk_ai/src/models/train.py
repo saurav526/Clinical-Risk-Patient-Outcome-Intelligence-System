@@ -65,7 +65,11 @@ def main():
                 mlflow.log_param("model_version", MODEL_VERSION)
                 mlflow.log_param("algorithm", name)
                 mlflow.log_metrics({k:v for k,v in metrics.items() if isinstance(v,(int,float))})
-                mlflow.sklearn.log_model(pipe, "model")
+                mlflow.sklearn.log_model(
+    pipe,
+    "model",
+    serialization_format="cloudpickle"
+)
         if best is None or metrics["roc_auc"] > best[2]["roc_auc"]:
             best = (name, pipe, metrics)
     name, model, metrics = best
