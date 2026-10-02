@@ -12,3 +12,4 @@ services:
       - API_URL=http://api:8000
     depends_on:
       - api
+# docker-compose file for managing the API and Streamlit application containers
