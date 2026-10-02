@@ -218,3 +218,5 @@ def run_agent(question: str):
     routed = deterministic_router(question)
 
     return routed
+def agent_query(question: str):
+    return run_agent(question)
