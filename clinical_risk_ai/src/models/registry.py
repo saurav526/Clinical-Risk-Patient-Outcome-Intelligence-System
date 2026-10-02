@@ -1,6 +1,8 @@
+# this file is used to store model information and metrics for tracking and registry purposes
 from pathlib import Path
 import json
 from src.config import ROOT
+
 
 REGISTRY = ROOT / "models/registry.json"
 
