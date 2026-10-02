@@ -5,7 +5,6 @@ from src.models.predict import predict_dataframe
 from src.models.explain import explain_patient
 
 FEATURE_DROP = ["patient_id", "readmitted_30d", "admission_date"]
-
 def patient_lookup(patient_id: str): return get_patient(patient_id)
 
 def predict_patient(patient_id: str):
