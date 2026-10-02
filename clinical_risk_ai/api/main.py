@@ -17,5 +17,6 @@ if Instrumentator:
 @app.on_event("startup")
 def startup(): init_db()
 
+
 @app.get("/")
 def root(): return {"service":"clinical-risk-ai","version":"2.0.0","docs":"/docs"}
