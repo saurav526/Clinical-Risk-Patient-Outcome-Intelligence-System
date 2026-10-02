@@ -47,5 +47,6 @@ def factors(): return readmission_factors()
 @router.get("/analytics/summary")
 def summary(): return dataset_summary()
 
+
 @router.post("/query",dependencies=[Depends(require_api_key)])
 def query(request:QueryRequest): return agent_query(request.question)
