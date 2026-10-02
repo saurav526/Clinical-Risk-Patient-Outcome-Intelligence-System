@@ -22,3 +22,5 @@ passlib[bcrypt]>=1.7
 bcrypt>=4.2
 prometheus-fastapi-instrumentator>=7.0
 plotly>=5.24
+
+# installation of groq, you may need to install the Microsoft Visual C++ Build Tools if you encounter any issues. You can download it from https://visualstudio.microsoft.com/visual-cpp-build-tools/
