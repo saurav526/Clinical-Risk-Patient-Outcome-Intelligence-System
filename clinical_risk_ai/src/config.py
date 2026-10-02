@@ -1,3 +1,4 @@
+# this file is used to load environment variables and configuration settings for the application
 from pathlib import Path
 import os
 from dotenv import load_dotenv
