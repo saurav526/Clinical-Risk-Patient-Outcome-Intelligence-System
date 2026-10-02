@@ -150,3 +150,6 @@ Data → Validation → Feature Engineering → Training
 ## Healthcare safety
 
 This is not a clinical decision-support system. The data is synthetic and the prediction has no medical validity. A real deployment would require governance, external validation, privacy controls, clinical review, bias analysis, monitoring, and regulatory compliance.
+
+## Feedback and support
+Provide suitable feedback for improvement and please star the repo
