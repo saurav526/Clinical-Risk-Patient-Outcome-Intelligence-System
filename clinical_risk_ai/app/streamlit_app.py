@@ -33,8 +33,86 @@ with t2:
         risk=requests.get(f"{API}/api/patients/{pid}/risk",headers=HEAD).json()
         exp=requests.get(f"{API}/api/patients/{pid}/explanation",headers=HEAD).json()
         x,y,z=st.columns(3); x.metric("Risk",risk.get("risk")); y.metric("Probability",f"{risk.get('probability',0)*100:.1f}%"); z.metric("Model",risk.get("model_version"))
-        drivers=pd.DataFrame(exp.get("drivers",[]));
-        if not drivers.empty: st.plotly_chart(px.bar(drivers.sort_values("contribution"),x="contribution",y="feature",orientation="h",title="SHAP model drivers"),use_container_width=True)
+        drivers = pd.DataFrame(
+    exp.get("drivers", [])
+)
+
+st.markdown("### SHAP model drivers")
+
+if drivers.empty:
+
+    st.warning(
+        "No SHAP drivers were returned for this patient."
+    )
+
+else:
+
+    drivers = drivers.sort_values(
+        "contribution"
+    )
+
+    fig = px.bar(
+        drivers,
+        x="contribution",
+        y="feature",
+        orientation="h",
+        text="contribution",
+        title="Top model contributions"
+    )
+
+    fig.update_traces(
+        texttemplate="%{text:.3f}",
+        textposition="outside"
+    )
+
+    fig.update_layout(
+        height=max(
+            420,
+            55 * len(drivers)
+        ),
+        xaxis_title="Contribution to model score",
+        yaxis_title="Feature",
+        margin=dict(
+            l=20,
+            r=80,
+            t=60,
+            b=40
+        )
+    )
+
+    st.plotly_chart(
+        fig,
+        use_container_width=True
+    )
+
+    display = drivers.copy()
+
+    display["contribution"] = display[
+        "contribution"
+    ].map(
+        lambda x: f"{x:+.4f}"
+    )
+
+    display = display.rename(
+        columns={
+            "feature": "Feature",
+            "contribution": "Contribution",
+            "direction": "Effect"
+        }
+    )
+
+    st.dataframe(
+        display,
+        use_container_width=True,
+        hide_index=True
+    )
+
+st.caption(
+    "SHAP contributions describe how features "
+    "move the model score relative to the "
+    "background data. This demo uses synthetic "
+    "data and is not a clinical diagnosis."
+)
 with t3:
     if st.button("Refresh population"):
         high=pd.DataFrame(requests.get(f"{API}/api/analytics/high-risk?limit=20").json())
