@@ -9,3 +9,5 @@ def test_summary():
     s=dataset_summary()
     assert s["rows"]==5000
     assert 0 < s["readmission_rate"] < 1
+
+# tool calling test from agent.tools, checking if patient_lookup and dataset_summary functions return expected results.
