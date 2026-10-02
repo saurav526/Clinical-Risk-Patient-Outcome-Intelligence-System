@@ -1,5 +1,6 @@
 # Synthetic dataset dictionary
 
+
 | Feature | Meaning |
 |---|---|
 | patient_id | Synthetic patient identifier |
