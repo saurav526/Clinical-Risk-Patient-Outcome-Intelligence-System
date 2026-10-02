@@ -29,6 +29,7 @@ def build_preprocessor():
         ("cat", Pipeline([("imputer", SimpleImputer(strategy="most_frequent")), ("onehot", OneHotEncoder(handle_unknown="ignore", sparse_output=False))]), CATEGORICAL_FEATURES)
     ])
 
+
 def evaluate(model, X, y):
     p = model.predict_proba(X)[:, 1]
     pred = (p >= 0.5).astype(int)
