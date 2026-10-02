@@ -1,3 +1,4 @@
+# this file is used to load the trained model and make predictions on new data, as well as log the predictions to the database for tracking and analysis
 from pathlib import Path
 import joblib
 import pandas as pd
