@@ -8,4 +8,5 @@ class PatientInput(BaseModel):
     physical_activity:str; prior_admissions:int; length_of_stay_days:float; medication_count:int
     emergency_visits_last_year:int; lab_abnormal_count:int; followup_days:int
 
+
 class QueryRequest(BaseModel): question:str=Field(min_length=3,max_length=1000)
