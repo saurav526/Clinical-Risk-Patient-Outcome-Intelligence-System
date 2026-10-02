@@ -1,6 +1,4 @@
-# Clinical Risk & Patient Outcome Intelligence System — v2
-
-Advanced portfolio project combining **Machine Learning + Explainable AI + LLM + Agentic AI + API + MLOps + database audit logging**.
+# Clinical Risk & Patient Outcome Intelligence System 
 
 > The included healthcare dataset is fully synthetic. This system is for engineering/education demonstrations and must not be used for diagnosis or clinical decisions.
 
@@ -10,7 +8,7 @@ Predict **30-day hospital readmission risk** from synthetic patient demographics
 
 ## What was upgraded
 
-- 5,000-row synthetic clinical dataset with realistic correlations and missing values
+- 5,000-row synthetic clinical dataset with realistic correlations and missing values having 30 features
 - Candidate model training: Logistic Regression, Random Forest, Gradient Boosting
 - Automatic model selection using ROC-AUC
 - Model version + registry metadata
