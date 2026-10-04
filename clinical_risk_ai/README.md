@@ -8,7 +8,7 @@ Predict **30-day hospital readmission risk** from synthetic patient demographics
 
 ## What was upgraded
 
-- 5,000-row synthetic clinical dataset with realistic correlations and missing values
+- 5,000-row clinical dataset with realistic correlations and missing values
 - Candidate model training: Logistic Regression, Random Forest, Gradient Boosting
 - Automatic model selection using ROC-AUC
 - Model version + registry metadata
