@@ -1,6 +1,52 @@
-# Clinical Risk & Patient Outcome Intelligence System 
+# Clinical Risk & Patient Outcome Intelligence System
 
-> The included healthcare dataset is fully synthetic. This system is for engineering/education demonstrations and must not be used for diagnosis or clinical decisions.
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-009688?logo=fastapi&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit&logoColor=white)
+![MLflow](https://img.shields.io/badge/MLflow-Tracking-0194E2?logo=mlflow&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+
+An end-to-end MLOps project that predicts **30-day hospital readmission risk**
+from synthetic patient data, explains each prediction with SHAP, and exposes the
+model through a secured API, an LLM tool-calling agent, and an interactive dashboard.
+
+> ⚠️ The dataset is fully synthetic. This is an engineering/education demo and
+> must not be used for diagnosis or clinical decisions.
+
+![Dashboard](docs/dashboard.png)
+
+## Highlights
+
+- 3 candidate models (Logistic Regression, Random Forest, Gradient Boosting) with automatic ROC-AUC selection
+- SHAP explanations per patient
+- MLflow experiment tracking and a versioned model registry
+- FastAPI with API-key protection, Prometheus `/metrics`, and SQLAlchemy audit logs
+- Groq function-calling agent with a deterministic fallback
+- Docker Compose setup and unit/API/tool tests
+
+## Results
+
+| Model | ROC-AUC |
+|---|---|
+| Logistic Regression | 98.42 |
+| Random Forest | 99.89 |
+| Gradient Boosting | 99.88 |
+
+## Quick start
+
+```bash
+cd clinical_risk_ai
+python -m venv .venv
+.venv\Scripts\activate        # Windows (use: source .venv/bin/activate on macOS/Linux)
+pip install -r requirements.txt
+copy .env.example .env
+python -m src.models.train
+uvicorn api.main:app --reload
+```
+
+API docs: http://127.0.0.1:8000/docs
 
 ## Core use case
 
