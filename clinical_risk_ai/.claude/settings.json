@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m src.models.train)",
+      "Bash(pytest:*)",
+      "Bash(pip install -r requirements.txt)",
+      "Bash(uvicorn api.main:app:*)",
+      "Bash(streamlit run app/streamlit_app.py)",
+      "Bash(docker compose config)",
+      "Read(./**)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Bash(rm -rf:*)",
+      "Bash(git push:*)",
+      "Bash(docker compose up:*)"
+    ]
+  }
+}
